@@ -1,7 +1,7 @@
 import { Pool } from 'pg';
 
 function setCorsHeaders(res) {
-  res.setHeader('Access-Control-Allow-Origin', '*'); // * libera todas origens, para produção recomendo restringir
+  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
@@ -9,7 +9,6 @@ function setCorsHeaders(res) {
 export default async function handler(req, res) {
   setCorsHeaders(res);
 
-  // Responder OPTIONS (preflight)
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
